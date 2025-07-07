@@ -41,11 +41,10 @@ namespace ZXing.Net.Maui
 
                 // Preview
                 cameraPreview = new AndroidX.Camera.Core.Preview.Builder().Build();
-                cameraPreview.SetSurfaceProvider(previewView.SurfaceProvider);
+                cameraPreview.SetSurfaceProvider(ContextCompat.GetMainExecutor(Context.Context), previewView.SurfaceProvider);
 
                 // Frame by frame analyze
                 imageAnalyzer = new ImageAnalysis.Builder()
-                    .SetDefaultResolution(new Android.Util.Size(640, 480))
                     //.SetOutputImageRotationEnabled(true) // FIXED: Could not read QRCode.
                     .SetOutputImageFormat(ImageAnalysis.OutputImageFormatRgba8888)
                     .SetBackpressureStrategy(ImageAnalysis.StrategyKeepOnlyLatest)
@@ -238,7 +237,6 @@ namespace ZXing.Net.Maui
 
 		public void Dispose()
 		{
-			cameraProvider?.Shutdown();
 
 			cameraExecutor?.Shutdown();
 			cameraExecutor?.Dispose();

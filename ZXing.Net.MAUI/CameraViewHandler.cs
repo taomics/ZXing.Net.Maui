@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
@@ -73,6 +73,7 @@ namespace ZXing.Net.Maui
 		public void AutoFocus()
 			=> cameraManager?.AutoFocus();
 
+#nullable enable
 		public static void MapFocus(CameraViewHandler handler, ICameraView cameraBarcodeReaderView, object? parameter)
 		{
 			if (parameter is not Point point)
@@ -83,5 +84,6 @@ namespace ZXing.Net.Maui
 
 		public static void MapAutoFocus(CameraViewHandler handler, ICameraView cameraBarcodeReaderView, object? parameters)
 			=> handler.AutoFocus();
+#nullable disable
 	}
 }
