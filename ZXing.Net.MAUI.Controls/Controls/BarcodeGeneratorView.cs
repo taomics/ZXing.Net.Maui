@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZXing.Net.Maui;
-using Microsoft.Maui.Graphics;
 
 namespace ZXing.Net.Maui.Controls
 {
